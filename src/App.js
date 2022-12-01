@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 
+function sayHello() {
+  alert('You clicked me!');
+}
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+        <img className="logo" src ="https://www.costargroup.com/images/librariesprovider3/costar-group/costar_group-logo.png?sfvrsn=2" alt="React Image" />
+        </h1>
       </header>
+      <body className="App-body">
+        <p> Enter Listing ID:</p>
+        <button onClick={sayHello}>SEARCH</button>
+      </body>
+      <footer className="App-footer">
+        FOOTER
+      </footer>
     </div>
   );
 }
