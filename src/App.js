@@ -1,8 +1,7 @@
 import './App.css';
+import Inputbox from './components/Inputbox.js'
 
-function sayHello() {
-  alert('You clicked me!');
-}
+
 function App() {
   return (
     <div className="App">
@@ -12,8 +11,9 @@ function App() {
         </h1>
       </header>
       <body className="App-body">
-        <p> Enter Listing ID:</p>
-        <button onClick={sayHello}>SEARCH</button>
+        <div>
+          <Inputbox></Inputbox>
+        </div>
       </body>
       <footer className="App-footer">
         FOOTER
