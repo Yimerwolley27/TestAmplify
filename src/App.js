@@ -9,6 +9,7 @@ function App() {
         <h1>
         <img className="logo" src ="https://www.costargroup.com/images/librariesprovider3/costar-group/costar_group-logo.png?sfvrsn=2" alt="React Image" />
         </h1>
+        <button> Filtered Search </button>
       </header>
       <body className="App-body">
         <div>
