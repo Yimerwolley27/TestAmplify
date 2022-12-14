@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChangeRoute = () => (
   <div>
-    <button> Filtered Search </button>
+    <button> Filtered Search Page </button>
   </div>
 );
 
