@@ -1,6 +1,7 @@
 import './App.css';
 import Inputbox from './components/Inputbox.js'
 import Post from './components/Post.js'
+import GetData from './components/GetData.js'
 
 
 function App() {
@@ -16,6 +17,11 @@ function App() {
         </nav>
       </header>
       <body classNameName="App-body">
+      <div className="card">
+          <div className="card-body">
+            <GetData></GetData>
+          </div>
+        </div>
         <div className="card">
           <div className="card-body">
             <Inputbox></Inputbox>

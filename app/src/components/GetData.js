@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ButtonClick = () => {
+const GetData = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
 
@@ -16,7 +16,7 @@ const ButtonClick = () => {
     event.preventDefault();
     setInput('');
     try {
-      const response = await fetch(`https://lnfppvwcta.execute-api.us-east-1.amazonaws.com/v1/invoke/?ListingID=${input}`, {
+      const response = await fetch(`https://pfg796gf56.execute-api.us-east-1.amazonaws.com/v1?ListingID=${input}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -40,7 +40,7 @@ const ButtonClick = () => {
   
   return (
     <div>
-      <h2>Search Result</h2>
+      <h2>Search Data</h2>
       <label htmlFor="input" className="me-2">ListingID</label>
       <input
         type="text"
@@ -56,4 +56,4 @@ const ButtonClick = () => {
   );
 }
 
-export default ButtonClick
+export default GetData
