@@ -2,21 +2,37 @@ import './App.css';
 import Inputbox from './components/Inputbox.js'
 import Post from './components/Post.js'
 import GetData from './components/GetData.js'
-
+import Navbar from './components/Navbar';
+import Data from './pages/Data';
+import Posts from './pages/Posts';
+import Results from './pages/Results';
+import Home from './pages/Home';
+import {Route, Routes, Link} from "react-router-dom";
 
 function App() {
+  
   return (
-    <div classNameName="App">
+    <div classNameName="App"> 
       <header classNameName="App-header">
-        <nav className="navbar bg-light">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <img classNameName="logo" src ="https://www.costargroup.com/images/librariesprovider3/costar-group/costar_group-logo.png?sfvrsn=2"/>
-            </a>
-          </div>
-        </nav>
+       {/* <Navbar/> */}
       </header>
-      <body classNameName="App-body">
+      <div className='container'>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path="Home" element={<Home />} />
+          <Route path="Data" element={<Data />} />
+          <Route path="Results" element={<Results />} />
+          <Route path="Posts" element={<Posts />} />
+
+          {/* Using path="*"" means "match anything", so this route
+                acts like a catch-all for URLs that we don't have explicit
+                routes for. */}
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
+      </div>
+      {/* <body classNameName="App-body">
       <div className="card">
           <div className="card-body">
             <GetData></GetData>
@@ -33,12 +49,24 @@ function App() {
           </div>
         </div>
         
-      </body>
+      </body> */}
       {/* <footer classNameName="App-footer">
         FOOTER
       </footer> */}
     </div>
   );
 }
+
+function NoMatch() {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
+}
+
 
 export default App;

@@ -1,4 +1,4 @@
-/* .App {
+ .App {
   text-align: center;
   position: absolute;
   height: 100%;
@@ -29,10 +29,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
   background-color: cornflowerblue;
   padding: 0;
   height: 15%;
+  font-family: inherit;
+  font-size: larger;
+}
+
+.nav {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.nav a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  font-size: large;
+}
+
+.nav li.active {
+  background-color: #555;
+}
+
+.nav li:hover{
+  background-color: #777;
 }
 
 .logo {
@@ -47,6 +83,7 @@
   font-size: inherit;
   font-weight: inherit;
 }
+
 .App-body > div {
   margin: auto;
   width: 50%;
@@ -68,4 +105,10 @@
 .App-header > h1 {
   height:fit-content;
   width: fit-content;
-} */
+} 
+
+.container {
+  margin: 1rem;
+  text-align: center;
+  color: 2pc solid black;
+}
