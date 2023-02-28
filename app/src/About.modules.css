@@ -1,0 +1,22 @@
+.about-header{
+    font-size: x-large;
+    margin-bottom: 40px;
+  }
+
+.p1{
+    color: black;
+}
+
+.header > h1{
+    margin-bottom: 60px;
+}
+
+.img {
+    max-width: auto;
+    max-height: auto;
+}
+#bg{
+    margin-bottom: 60px;
+}
+
+

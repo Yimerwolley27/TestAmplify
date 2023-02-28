@@ -31,7 +31,7 @@ const GetData = () => {
 
       console.log(JSON.stringify(result))
 
-      setOutput(JSON.stringify(result))
+      setOutput(JSON.stringify(result, null, 4))
 
     } catch (error) {
       console.log(error);

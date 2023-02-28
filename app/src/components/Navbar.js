@@ -19,6 +19,9 @@ export default function Navbar() {
               <li>
                 <Link to ='/Posts'> POST </Link>
               </li>
+              <li>
+                <Link to ='/About'> ABOUT </Link>
+              </li>
             </ul>
         </nav>
         <Outlet />

@@ -1,5 +1,13 @@
+import Inputbox from "../components/Inputbox";
+
 export default function Results() {
     return (
-        <h1> SEARCH RESULT </h1>
+      <body classNameName="App-body">
+        <div className="card">
+        <div className="card-body">
+          <Inputbox></Inputbox>
+        </div>
+      </div>
+      </body>
     )
 }

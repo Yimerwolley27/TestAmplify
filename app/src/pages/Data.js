@@ -1,5 +1,11 @@
+import GetData from "../components/GetData";
+
 export default function Data() {
     return (
-        <h1> SEARCH DATA </h1>
+        <div className="card">
+        <div className="card-body">
+          <GetData></GetData>
+        </div>
+      </div>
     )
 }

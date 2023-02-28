@@ -1,4 +1,5 @@
 import './App.css';
+import './About.modules.css';
 import Inputbox from './components/Inputbox.js'
 import Post from './components/Post.js'
 import GetData from './components/GetData.js'
@@ -7,6 +8,7 @@ import Data from './pages/Data';
 import Posts from './pages/Posts';
 import Results from './pages/Results';
 import Home from './pages/Home';
+import About from './pages/About';
 import {Route, Routes, Link} from "react-router-dom";
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
           <Route path="Data" element={<Data />} />
           <Route path="Results" element={<Results />} />
           <Route path="Posts" element={<Posts />} />
+          <Route path="About" element={<About />}/>
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
