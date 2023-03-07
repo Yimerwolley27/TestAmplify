@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MyDataGrid from './JsonTable';
 
 const ButtonClick = () => {
   const [input, setInput] = useState('');
@@ -31,7 +32,9 @@ const ButtonClick = () => {
 
       console.log(JSON.stringify(result))
 
-      setOutput(JSON.stringify(result))
+      setOutput(<MyDataGrid data = {result}/>)
+
+      console.log(result);
 
     } catch (error) {
       console.log(error);
