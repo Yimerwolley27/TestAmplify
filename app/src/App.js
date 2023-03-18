@@ -1,8 +1,5 @@
 import './App.css';
 import './About.modules.css';
-import Inputbox from './components/Inputbox.js'
-import Post from './components/Post.js'
-import GetData from './components/GetData.js'
 import Navbar from './components/Navbar';
 import Data from './pages/Data';
 import Posts from './pages/Posts';
@@ -38,12 +35,12 @@ function App() {
       {/* <body classNameName="App-body">
       <div className="card">
           <div className="card-body">
-            <GetData></GetData>
+            <SearchData></SearchData>
           </div>
         </div>
         <div className="card">
           <div className="card-body">
-            <Inputbox></Inputbox>
+            <SearchResult></SearchResult>
           </div>
         </div>
         <div className="card">

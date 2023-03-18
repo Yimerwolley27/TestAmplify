@@ -1,11 +1,11 @@
-import Inputbox from "../components/Inputbox";
+import SearchResult from "../components/SearchResult";
 
 export default function Results() {
     return (
       <body classNameName="App-body">
         <div className="card">
         <div className="card-body">
-          <Inputbox></Inputbox>
+          <SearchResult></SearchResult>
         </div>
       </div>
       </body>

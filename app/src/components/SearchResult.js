@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import MyDataGrid from './JsonTable';
+import MyDataGrid from './KeyPhrasesTable';
 
-const ButtonClick = () => {
+const SearchResult = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState('');
+  const [output, setOutput] = useState(null);
 
   const handleChange = (event) => {
     setInput(event.target.value);
   };
 
   const cleanUp = () => {
-    setOutput('');
+    setOutput(null);
   };
 
   const handleClick = async (event) => {
@@ -32,7 +32,7 @@ const ButtonClick = () => {
 
       console.log(JSON.stringify(result))
 
-      setOutput(<MyDataGrid data = {result}/>)
+      setOutput(result)
 
       console.log(result);
 
@@ -51,12 +51,26 @@ const ButtonClick = () => {
         name="input"
         onChange={handleChange}
         value={input}
+        style={{ marginBottom: 10}}
       />
-      <p>{output}</p>
-      <button className="btn btn-info me-2" onClick={handleClick}>Search</button>
-      <button className="btn btn-secondary" onClick={cleanUp}>Clean</button>
+      {output && (
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 130, paddingRight: 130 }}>
+            <h5>ListingID: {output.Item.ListingID.N}</h5>
+            <h5>TimeStamp: {output.Item.TimeStamp.S}</h5>
+          </div>
+          <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
+            <MyDataGrid data={output}/> 
+          </div>
+
+        </div>
+      )}
+      <div>
+        <button className="btn btn-info me-2" onClick={handleClick}>Search</button>
+        <button className="btn btn-secondary" onClick={cleanUp}>Clean</button>
+      </div>
     </div>
   );
 }
 
-export default ButtonClick
+export default SearchResult

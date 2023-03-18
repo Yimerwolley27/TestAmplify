@@ -14,15 +14,15 @@ const MyDataGrid = ({ data }) => {
 
   // Define the columns for the DataGrid
   const columns = [
-    { field: 'score', headerName: 'Score', width: 200 },
-    { field: 'text', headerName: 'Text', width: 200 },
-    { field: 'beginOffset', headerName: 'Begin Offset', width: 200 },
-    { field: 'endOffset', headerName: 'End Offset', width: 200 },
+    { field: 'score', headerName: 'Score', width: 250 },
+    { field: 'text', headerName: 'Text', width: 250 },
+    { field: 'beginOffset', headerName: 'Begin Offset', width: 250 },
+    { field: 'endOffset', headerName: 'End Offset', width: 250 },
   ];
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+    <div style={{ height: 631, width: '80%' }}>
+      <DataGrid rows={rows} columns={columns} pageSize={10} />
     </div>
   );
 };
