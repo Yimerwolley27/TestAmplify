@@ -3,29 +3,21 @@ import { useState } from 'react';
 const Post = () => {
   const [message, setMessage] = useState('');
   const [ListingID, setListingID] = useState('');
-  const [AC, setAC] = useState(null);
-  const [Basement, setBasement] = useState(null);
-  const [BathsFull, setBathsFull] = useState(null);
-  const [BathsHalf, setBathsHalf] = useState(null);
   const [Beds, setBeds] = useState(null);
+  const [BathsHalf, setBathsHalf] = useState(null);
+  const [BathsFull, setBathsFull] = useState(null);
+  const [StreetName, setStreetName] = useState(null);
   const [City, setCity] = useState(null);
-  const [CityID, setCityID] = useState(null);
-  const [CountyID, setCountyID] = useState(null);
+  const [State, setState] = useState(null);
+  const [Zip, setZip] = useState(null);
   const [CurrentPrice, setCurrentPrice] = useState(null);
-  const [DoNotDisplayFlags, setDoNotDisplayFlags] = useState(null);
-  const [ElementarySchoolRating, setElementarySchoolRating] = useState(null);
-  const [Elevator, setElevator] = useState(null);
-  const [Fireplaces, setFireplaces] = useState(null);
-  // const [ForSale, setForSale] = useState(false);
-  const [Heating, setHeating] = useState(null);
   const [Remarks, setRemarks] = useState('');
 
   // modal
   const [showModal, setShowModal] = useState(false);
 
-  const stateVariables = [ setListingID,  setAC,  setBasement,  setBathsFull,  setBathsHalf,  
-    setBeds,  setCity,  setCityID,  setCountyID,  setCurrentPrice,  setDoNotDisplayFlags,  
-    setElementarySchoolRating,  setElevator,  setFireplaces,  setHeating,  setRemarks
+  const stateVariables = [ setListingID,  setBeds, setBathsHalf, setBathsFull, setStreetName,
+    setCity,  setState,  setZip,  setCurrentPrice, setRemarks
   ];
 
   const cleanUp = () => {
@@ -40,10 +32,6 @@ const Post = () => {
     event.preventDefault();
     console.log('ListingID:', ListingID);
     console.log(typeof(ListingID));
-    console.log('AC:', AC);
-    console.log(typeof(AC));
-    console.log('Basement:', Basement);
-    console.log(typeof(Basement));
     console.log('BathsFull:', BathsFull);
     console.log(typeof(BathsFull));
     console.log('Remarks:', Remarks);
@@ -60,21 +48,14 @@ const Post = () => {
         },
         body: JSON.stringify({
           ListingID: parseInt(ListingID), 
-          AC: AC, 
-          Basement: Basement,
-          BathsFull: BathsFull,
-          BathsHalf: BathsHalf,
           Beds: Beds,
+          BathsHalf: BathsHalf,
+          BathsFull: BathsFull,
+          StreetName: StreetName,
           City: City,
-          CityID: CityID,
-          CountyID: CountyID,
+          State: State,
+          Zip: Zip,
           CurrentPrice: CurrentPrice,
-          DoNotDisplayFlags: DoNotDisplayFlags,
-          ElementarySchoolRating: ElementarySchoolRating,
-          Elevator: Elevator,
-          Fireplaces: Fireplaces,
-          // ForSale: ForSale,
-          Heating: Heating,
           Remarks: Remarks
         })
       });
@@ -102,145 +83,101 @@ const Post = () => {
     <div>
       <h2>Post</h2>
       <form onSubmit={handleSubmit} className="row g-3">
-          <div className="col-md-6">
-              <label htmlFor="ListingID" className="me-2">ListingID</label>
+          <div className="form-group">
+              <label for="ListingID" className="">ListingID</label>
               <input
                   id="ListingID"
                   type="text"
+                  className="form-control"
                   value={ListingID}
                   onChange={(e) => setListingID(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="AC" className="me-2">AC</label>
+          <div className="form-group">
+              <label for="Beds" className="">Beds</label>
               <input
-                  id="AC"
+                  id="Beds"
                   type="text"
-                  value={AC}
-                  onChange={(e) => setAC(e.target.value)}
+                  className="form-control"
+                  value={Beds}
+                  onChange={(e) => setBeds(e.target.value)}
+              />
+          </div> 
+          <div className="form-group">
+              <label for="BathsHalf" className="">BathsHalf</label>
+              <input
+                  id="BathsHalf"
+                  type="text"
+                  className="form-control"
+                  value={BathsHalf}
+                  onChange={(e) => setBathsHalf(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="Basement" className="me-2">Basement</label>
-              <input
-                  id="Basement"
-                  type="text"
-                  value={Basement}
-                  onChange={(e) => setBasement(e.target.value)}
-              />
-          </div>
-          <div className="col-md-6">
-              <label htmlFor="BathsFull" className="me-2">BathsFull</label>
+          <div className="form-group">
+              <label for="BathsFull" className="">BathsFull</label>
               <input
                   id="BathsFull"
                   type="text"
+                  className="form-control"
                   value={BathsFull}
                   onChange={(e) => setBathsFull(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="BathsHalf" className="me-2">BathsHalf</label>
+          <div className="form-group">
+              <label for="StreetName" className="">StreetName</label>
               <input
-                  id="BathsHalf"
+                  id="StreetName"
                   type="text"
-                  value={BathsHalf}
-                  onChange={(e) => setBathsHalf(e.target.value)}
+                  className="form-control"
+                  value={StreetName}
+                  onChange={(e) => setStreetName(e.target.value)}
               />
-          </div> 
-          <div className="col-md-6">
-              <label htmlFor="Beds" className="me-2">Beds</label>
-              <input
-                  id="Beds"
-                  type="text"
-                  value={Beds}
-                  onChange={(e) => setBeds(e.target.value)}
-              />
-          </div>  
-          <div className="col-md-6">
-              <label htmlFor="City" className="me-2">City</label>
+          </div>
+          <div className="form-group">
+              <label for="City" className="">City</label>
               <input
                   id="City"
                   type="text"
+                  className="form-control"
                   value={City}
                   onChange={(e) => setCity(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="CityID" className="me-2">CityID</label>
+          <div className="form-group">
+              <label for="State" className="">State</label>
               <input
-                  id="CityID"
+                  id="State"
                   type="text"
-                  value={CityID}
-                  onChange={(e) => setCityID(e.target.value)}
+                  className="form-control"
+                  value={State}
+                  onChange={(e) => setState(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="CountyID" className="me-2">CountyID</label>
+          <div className="form-group">
+              <label for="Zip" className="">Zip</label>
               <input
-                  id="CountyID"
+                  id="Zip"
                   type="text"
-                  value={CountyID}
-                  onChange={(e) => setCountyID(e.target.value)}
+                  className="form-control"
+                  value={Zip}
+                  onChange={(e) => setZip(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="CurrentPrice" className="me-2">CurrentPrice</label>
+          <div className="form-group">
+              <label for="CurrentPrice" className="">CurrentPrice</label>
               <input
                   id="CurrentPrice"
                   type="text"
+                  className="form-control"
                   value={CurrentPrice}
                   onChange={(e) => setCurrentPrice(e.target.value)}
               />
           </div>
-          <div className="col-md-6">
-              <label htmlFor="DoNotDisplayFlags" className="me-2">DoNotDisplayFlags</label>
-              <input
-                  id="DoNotDisplayFlags"
-                  type="text"
-                  value={DoNotDisplayFlags}
-                  onChange={(e) => setDoNotDisplayFlags(e.target.value)}
-              />
-          </div>
-          <div className="col-md-6">
-              <label htmlFor="ElementarySchoolRating" className="me-2">ElementarySchoolRating</label>
-              <input
-                  id="ElementarySchoolRating"
-                  type="text"
-                  value={ElementarySchoolRating}
-                  onChange={(e) => setElementarySchoolRating(e.target.value)}
-              />
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="Elevator" className="me-2">Elevator</label>
-            <input
-                id="Elevator"
-                type="text"
-                value={Elevator}
-                onChange={(e) => setElevator(e.target.value)}
-            />
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="Fireplaces" className="me-2">Fireplaces</label>
-            <input
-                id="Fireplaces"
-                type="text"
-                value={Fireplaces}
-                onChange={(e) => setFireplaces(e.target.value)}
-            />
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="Heating" className="me-2">Heating</label>
-            <input
-                id="Heating"
-                type="text"
-                value={Heating}
-                onChange={(e) => setHeating(e.target.value)}
-            />
-          </div>
-          <div className="col-md-12">
-              <label htmlFor="Remarks" className="me-2">Remarks</label>
+          <div className="form-group">
+              <label for="Remarks" className="">Remarks</label>
               <textarea
                   id="Remarks"
+                  className="form-control"
                   value={Remarks}
                   onChange={(e) => setRemarks(e.target.value)}
               />
