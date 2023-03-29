@@ -62,7 +62,6 @@ const SearchResult = () => {
           <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
             <MyDataGrid data={output}/> 
           </div>
-
         </div>
       )}
       <div>

@@ -80,11 +80,11 @@ const Post = () => {
   };
   
   return (
-    <div>
+    <div style={{textAlign: "left"}}>
       <h2>Post</h2>
-      <form onSubmit={handleSubmit} className="row g-3">
-          <div className="form-group">
-              <label for="ListingID" className="">ListingID</label>
+      <form onSubmit={handleSubmit} className="text-justify">
+          <div className="form-group pt-4">
+              <label for="ListingID" className="text-justify">ListingID</label>
               <input
                   id="ListingID"
                   type="text"
@@ -93,7 +93,7 @@ const Post = () => {
                   onChange={(e) => setListingID(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="Beds" className="">Beds</label>
               <input
                   id="Beds"
@@ -103,7 +103,7 @@ const Post = () => {
                   onChange={(e) => setBeds(e.target.value)}
               />
           </div> 
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="BathsHalf" className="">BathsHalf</label>
               <input
                   id="BathsHalf"
@@ -113,7 +113,7 @@ const Post = () => {
                   onChange={(e) => setBathsHalf(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="BathsFull" className="">BathsFull</label>
               <input
                   id="BathsFull"
@@ -123,7 +123,7 @@ const Post = () => {
                   onChange={(e) => setBathsFull(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="StreetName" className="">StreetName</label>
               <input
                   id="StreetName"
@@ -133,7 +133,7 @@ const Post = () => {
                   onChange={(e) => setStreetName(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="City" className="">City</label>
               <input
                   id="City"
@@ -143,7 +143,7 @@ const Post = () => {
                   onChange={(e) => setCity(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="State" className="">State</label>
               <input
                   id="State"
@@ -153,7 +153,7 @@ const Post = () => {
                   onChange={(e) => setState(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="Zip" className="">Zip</label>
               <input
                   id="Zip"
@@ -163,7 +163,7 @@ const Post = () => {
                   onChange={(e) => setZip(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="CurrentPrice" className="">CurrentPrice</label>
               <input
                   id="CurrentPrice"
@@ -173,7 +173,7 @@ const Post = () => {
                   onChange={(e) => setCurrentPrice(e.target.value)}
               />
           </div>
-          <div className="form-group">
+          <div className="form-group pt-4">
               <label for="Remarks" className="">Remarks</label>
               <textarea
                   id="Remarks"
@@ -182,7 +182,7 @@ const Post = () => {
                   onChange={(e) => setRemarks(e.target.value)}
               />
           </div>
-          <div className="col-12">
+          <div className="col-12 pt-4">
             <button className="btn btn-success me-2" type="submit">Submit</button>
             <button className="btn btn-secondary" onClick={cleanUp}>Clean</button>
           </div>
