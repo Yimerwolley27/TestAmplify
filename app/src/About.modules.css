@@ -1,6 +1,7 @@
 .about-header{
     font-size: x-large;
     margin-bottom: 40px;
+    width: 100%;
   }
 
 .p1{
@@ -11,8 +12,9 @@
     margin-bottom: 60px;
 }
 
-#bg {
+#bg > img{
     margin-bottom: 60px;
+    width: 100%;
 }
 
 
