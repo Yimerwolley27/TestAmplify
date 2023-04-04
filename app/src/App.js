@@ -32,7 +32,9 @@ function App() {
         </Route>
       </Routes>
       </div>
-      {/* <body classNameName="App-body">
+      {
+        
+      /* <body classNameName="App-body">
       <div className="card">
           <div className="card-body">
             <SearchData></SearchData>
@@ -53,9 +55,17 @@ function App() {
       {/* <footer classNameName="App-footer">
         FOOTER
       </footer> */}
+
     </div>
   );
 }
+const current = 0;
+for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href === document.URL) {
+        current = i;
+    }
+}
+document.links[current].className = 'current';
 
 function NoMatch() {
   return (
