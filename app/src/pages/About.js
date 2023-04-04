@@ -9,7 +9,7 @@ export default function About() {
         </tr>
         <tr>
           <td>Khajamoinuddin Syed<br /><img src="about_people.jpg" /><br />Mentor</td>
-          <td>Description<br /> <br />Describe the role this team member played</td>
+          <td>Description<br /> <br />Senior Machine Learning Engineer with CoStar Group. Received his PhD in Computer Science from VCU in May 2019 and has served as the main point of contact for the VCU team. Seen as the Project Manager, he would communicate what the project would need and would offer guidance whenever the team encountered roadblocks.</td>
         </tr>
         <tr>
           <td>Gabrielle Cornelius<br /><img src="about_people.jpg" /><br />Student Team Member</td>
@@ -17,15 +17,15 @@ export default function About() {
         </tr>
         <tr>
           <td>Kim Long Ly<br /><img src="about_people.jpg" /><br />Student Team Member</td>
-          <td>Description<br /> <br />Describe the role this team member played</td>
+          <td>Description<br /> <br />A senior studying Computer Science at VCU. From Virginia Beach, VA, he hopes to start working as a Software/Cloud Computing Engineer once he graduates in December 2023 with his bachelor’s.</td>
         </tr>
         <tr>
           <td>Jeffrey Stanley<br /><img src="about_people.jpg" /><br />Student Team Member</td>
-          <td>Description<br /> <br />Describe the role this team member played</td>
+          <td>Description<br /> <br />A senior from VCU graduating in May/2023 with a B.S. in Computer Science. Originally from Buckingham, VA, he plans to one day go into research but will be starting out in Software Engineering in order to improve his skill sets before pursuing further education.</td>
         </tr>
         <tr>
           <td>Yeabsera Yimer Wolle <br /><img src="about_people.jpg" /><br />Student Team Member</td>
-          <td>Description<br /> <br />Describe the role this team member played</td>
+          <td>Description<br /> <br />A VCU senior from Annandale, VA graduating in May of 2023 with her bachelor's degree in Computer Science. As she makes plans to continue her career in New York post grad, she is excited to finally put her skills to use and begin her career as a Software Engineer upon graduation.</td>
         </tr>
       </table>
       </div>
