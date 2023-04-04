@@ -4,7 +4,7 @@ export default function About() {
         <div>
         <table className = "table">
         <tr>
-          <td>John Leonard<br /><img src="leonard.jpg" /><br />Faculty Advisor</td>
+          <td>John Leonard<br /><img src="leonard.jpg" style={{ display: 'flex', justifyContent: 'center' }}/><br />Faculty Advisor</td>
           <td>Description<br /> <br />Describe the role this team member played</td>
         </tr>
         <tr>
