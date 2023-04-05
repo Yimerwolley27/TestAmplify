@@ -85,6 +85,7 @@ const Post = () => {
   return (
     <div style={{textAlign: "left"}}>
       <h2>Post</h2>
+      <p>{message}</p>
       <form onSubmit={handleSubmit} className="text-justify">
           <div className="form-group pt-4">
               <label for="ListingID" className="text-justify">ListingID</label>
@@ -206,7 +207,6 @@ const Post = () => {
           </div>
         </div>
       </div> */}
-      <p>{message}</p>
 
     </div>
   );
