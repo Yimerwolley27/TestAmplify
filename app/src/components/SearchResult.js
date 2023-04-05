@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import MyDataGrid from './KeyPhrasesTable';
+import OAIDataGrid from './OAIKeyTable';
 
 const SearchResult = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState(null);
+  const [AWSoutput, setAWSOutput] = useState(null);
+  const [OAIoutput, setOAIOutput] = useState(null);
   const [remarks, setRemarks] = useState(null);
   const [Mode, setMode] = useState('aws');
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -16,12 +19,14 @@ const SearchResult = () => {
   };
   
   const cleanUp = () => {
-    setOutput(null);
+    setAWSOutput(null);
+    setOAIOutput(null);
   };
 
   const handleClick = async (event) => {
     event.preventDefault();
     setInput('');
+    setError(null);
 
     try {
       const response = await fetch(`https://pfg796gf56.execute-api.us-east-1.amazonaws.com/v1?ListingID=${input}`, {
@@ -37,16 +42,15 @@ const SearchResult = () => {
 
       const result = await response.json();
 
-      console.log('Remarks: ', result.Item.Remarks.S);
-
       setRemarks(result.Item.Remarks.S);
     }
     catch (error) {
       console.log(error);
+      setError(error);
     }
 
     try {
-      const response = await fetch(`https://lnfppvwcta.execute-api.us-east-1.amazonaws.com/v1/invoke/?ListingID=${input}&Mode=${Mode}`, {
+      const response = await fetch(`https://lnfppvwcta.execute-api.us-east-1.amazonaws.com/v1/invoke/?ListingID=${input}&Mode=aws`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -61,17 +65,72 @@ const SearchResult = () => {
 
       console.log(JSON.stringify(result))
 
-      setOutput(result)
+      setAWSOutput(result)
 
       console.log(result);
-      
+
       // console.log(result.Item.Result.S);
 
     } catch (error) {
       console.log(error);
+      setError(error);
+    }
+
+    try {
+      const response = await fetch(`https://lnfppvwcta.execute-api.us-east-1.amazonaws.com/v1/invoke/?ListingID=${input}&Mode=openai`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      console.log(JSON.stringify(result))
+
+      setOAIOutput(result)
+
+      console.log(result);
+
+      // console.log(result.Item.Result.S);
+
+    } catch (error) {
+      console.log(error);
+      setError(error);
     }
   };
   
+  const renderResult = () => {
+    return <div>
+      {AWSoutput && OAIoutput && (
+          <div>
+            <div style={{ width: '80%', margin: '0 auto', paddingTop: 20, paddingBottom: 20 }}>
+              <h6>Remarks:</h6>
+              <p>{remarks}</p>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 130, paddingRight: 130 }}>
+              <h5>ListingID: {AWSoutput.Item.ListingID.N}</h5>
+              <h5>TimeStamp: {AWSoutput.Item.TimeStamp.S}</h5>
+            </div>
+            {Mode === 'aws' && (
+              <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
+                <MyDataGrid data={AWSoutput}/> 
+              </div>
+            )}
+            {Mode === 'openai' && (
+              <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
+                <OAIDataGrid data={OAIoutput}/>
+              </div>
+            )}
+          </div>
+        )}
+    </div>;
+  };
+
   return (
     <div>
       <h2>Search Result</h2>
@@ -108,29 +167,36 @@ const SearchResult = () => {
         <label htmlFor="openai-radio">OpenAI</label>
       </div>
 
-      {output && (
-        <div>
-          <div style={{ width: '80%', margin: '0 auto', paddingTop: 20, paddingBottom: 20 }}>
-            <h6>Remarks:</h6>
-            <p>{remarks}</p>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 130, paddingRight: 130 }}>
-            <h5>ListingID: {output.Item.ListingID.N}</h5>
-            <h5>TimeStamp: {output.Item.TimeStamp.S}</h5>
-          </div>
-          {Mode == 'aws' && (
-            <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
-              <MyDataGrid data={output}/> 
-            </div>
-          )}
-          {Mode == 'openai' && (
-            <div className="mb-2" style={{ width: '80%', margin: '0 auto', paddingTop: 20, paddingBottom: 20 }}>
-              <p>{output.Item.Result.S}</p>
-            </div>
-          )}
-        </div>
+      {error ? (
+        <h4 style={{ margin: 20}}>Something went wrong</h4>
+      ) : (
+        renderResult()
       )}
-      <div>
+
+      {/* {AWSoutput && OAIoutput && (
+          <div>
+            <div style={{ width: '80%', margin: '0 auto', paddingTop: 20, paddingBottom: 20 }}>
+              <h6>Remarks:</h6>
+              <p>{remarks}</p>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 130, paddingRight: 130 }}>
+              <h5>ListingID: {AWSoutput.Item.ListingID.N}</h5>
+              <h5>TimeStamp: {AWSoutput.Item.TimeStamp.S}</h5>
+            </div>
+            {Mode === 'aws' && (
+              <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
+                <MyDataGrid data={AWSoutput}/> 
+              </div>
+            )}
+            {Mode === 'openai' && (
+              <div className="mb-2" style={{ display: 'flex', justifyContent: 'center' }}>
+                <OAIDataGrid data={OAIoutput}/>
+              </div>
+            )}
+          </div>
+        )} */}
+
+      <div style={{ marginTop: 10}}>
         <button className="btn btn-info me-2" onClick={handleClick}>Search</button>
         <button className="btn btn-secondary" onClick={cleanUp}>Clean</button>
       </div>
