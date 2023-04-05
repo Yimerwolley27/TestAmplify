@@ -69,13 +69,16 @@ const Post = () => {
       console.log('result is: ', JSON.stringify(result, null, 4));
 
       console.log(JSON.stringify(result))
-
-      setMessage(JSON.stringify(result))
+      
+      if (result){
+        setMessage('message successful')
+      }      
 
       setShowModal(true);
 
     } catch (error) {
       console.log(error);
+      setMessage('message fails')
     }
   };
   
