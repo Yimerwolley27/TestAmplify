@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyDataGrid from './KeyPhrasesTable';
 import OAIDataGrid from './OAIKeyTable';
 
@@ -21,12 +21,13 @@ const SearchResult = () => {
   const cleanUp = () => {
     setAWSOutput(null);
     setOAIOutput(null);
+    setError(null);
   };
 
   const handleClick = async (event) => {
     event.preventDefault();
     setInput('');
-    setError(null);
+    cleanUp();
 
     try {
       const response = await fetch(`https://pfg796gf56.execute-api.us-east-1.amazonaws.com/v1?ListingID=${input}`, {
@@ -103,6 +104,11 @@ const SearchResult = () => {
       setError(error);
     }
   };
+
+  // Use useEffect to call handleClick or trigger re-render when error changes
+  useEffect(() => {
+    handleClick();
+  }, [input]);
   
   const renderResult = () => {
     return <div>
@@ -134,16 +140,19 @@ const SearchResult = () => {
   return (
     <div>
       <h2>Search Result</h2>
-      <label htmlFor="input" className="me-2">ListingID</label>
-      <input
-        type="text"
-        id="input"
-        name="input"
-        onChange={handleChange}
-        value={input}
-        style={{ marginBottom: 10}}
-      />
-
+      <div style={{ marginBottom: 10 }}>
+        <label htmlFor="input" className="me-2">ListingID</label>
+        <input
+          type="text"
+          id="input"
+          name="input"
+          onChange={handleChange}
+          value={input}
+          className="me-3"
+          style={{ verticalAlign: 'middle' }}
+        />
+        <button className="btn btn-info" onClick={handleClick}>Search</button> 
+      </div>
       <div>
         <input
           type="radio"
@@ -196,10 +205,10 @@ const SearchResult = () => {
           </div>
         )} */}
 
-      <div style={{ marginTop: 10}}>
+      {/* <div style={{ marginTop: 10}}>
         <button className="btn btn-info me-2" onClick={handleClick}>Search</button>
         <button className="btn btn-secondary" onClick={cleanUp}>Clean</button>
-      </div>
+      </div> */}
     </div>
   );
 }
