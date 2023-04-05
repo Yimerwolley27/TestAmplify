@@ -7,9 +7,9 @@ export default function Navbar() {
               <img classNameName="logo" src ="https://www.costargroup.com/images/librariesprovider3/costar-group/costar_group-logo.png?sfvrsn=2"/>
             </a>
             <ul>
-            <li>
+            {/* <li>
                 <Link to ='/Home'> HOME </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to ='/Data'> DATA </Link>
               </li>
