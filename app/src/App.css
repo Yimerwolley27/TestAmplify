@@ -6,7 +6,7 @@
   border-color: 2pc solid orange;
   margin: 0;
   padding: 0;
-  font-family: "PT Serif",serif;
+  font-family: "Gill Sans", sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -21,7 +21,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.container {
+  max-width: 100%;
+}
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -36,20 +38,24 @@
   font-size: larger;
 }
 
-.about-body > p{
-  font-size: 25px;
+.about-body > p {
+  font-family: "Gill Sans", sans-serif;
+  padding: 0;
 }
 
 .nav {
   color: black;
   display: flex;
+  width: 100%;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
   padding: 0 1rem;
+  background-color: #B4DEFF;
 }
 
-.nav a{
+.nav a {
   color: inherit;
   text-decoration: none;
   height: 100%;
@@ -65,6 +71,7 @@
   display: flex;
   gap: 1rem;
   font-size: large;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .nav li.active {
@@ -86,6 +93,7 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .App-body > div {
@@ -115,11 +123,17 @@
   /*margin: 1rem;*/
   text-align: center;
   color: 2pc solid black;
+  max-width: 100%;
+  padding: 0;
+}
+
+.card-body {
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 700;
 }
 
 .card-body > tr, th {
   width: 50%;
- 
 }
 
 .card-body > table {
@@ -138,7 +152,7 @@
 }
 
 
-#image{
+#image {
   width:fit-content;
 }
 
@@ -147,8 +161,11 @@
   spacing:"0"; 
   width:"100%";
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gill Sans", sans-serif;
   margin-top: 5rem;
+  font-weight: 400;
+  font-size: 14;
+  justify-content: left;
 }
 
 td {

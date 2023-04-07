@@ -1,15 +1,11 @@
 .about-header{
-    font-size: x-large;
+    font-size: large;
     margin-bottom: 40px;
     width: 100%;
   }
 
 .p1{
     color: black;
-}
-
-.header > h1{
-    margin-bottom: 60px;
 }
 
 #bg > img{
