@@ -27,7 +27,7 @@
 .App-header {
   background-color: #282c34;
   display: flex;
-  position:relative;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: left;
@@ -52,7 +52,7 @@
   align-items: center;
   gap: 2rem;
   padding: 0 1rem;
-  background-color: #B4DEFF;
+  background-color: #FDD1A0;
 }
 
 .nav a {
