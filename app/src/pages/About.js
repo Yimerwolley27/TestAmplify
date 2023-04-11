@@ -5,7 +5,7 @@ export default function About() {
         <table className = "table">
         <tr>
           <td>John Leonard<br /><img src="leonard.jpg" style ={{ height: 100, width: 100 }} /><br />Faculty Advisor</td>
-          <td>Description<br /> <br />Describe the role this team member played</td>
+          <td>Description<br /> <br />Dr. John D. Leonard II is Professor of Computer Science in the College of Engineering at the Virginia Commonwealth University in Richmond, Virginia. Received his Bachelors of Science, Masters of Science, and Doctor of Philosophy degrees in Engineering in 1983, 1986, and 1991 respectively from the University of California Irvine.</td>
         </tr>
         <tr>
           <td>Khajamoinuddin Syed<br /><img src="syed.jpg" style ={{ height: 100, width: 100 }} /><br />Mentor</td>
